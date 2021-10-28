@@ -25,14 +25,14 @@ public class HibernateExample implements CommandLineRunner {
     public void run(String... args) {
         managerRepository.findAll()
                 .forEach(manager -> System.out.println(manager.toString()));
+
     }
 }
 
 @Entity
 @Data
-@ToString
 class Manager {
-    private int id;
+    private long id;
     private String firstName;
     private String lastName;
 }

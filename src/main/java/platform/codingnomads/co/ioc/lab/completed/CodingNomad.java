@@ -3,17 +3,22 @@ package platform.codingnomads.co.ioc.lab.completed;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.text.MessageFormat;
 
 @Component
 @RequiredArgsConstructor
 public class CodingNomad {
+
+
     private final JDK jdk;
+
     private final IDE ide;
+
     private final Framework framework;
 
-    private SoundSystem soundSystem;
+    SoundSystem soundSystem;
 
     @Autowired
     public void setSoundSystem(SoundSystem soundSystem) {
@@ -22,6 +27,8 @@ public class CodingNomad {
 
     @Autowired
     OperatingSystem operatingSystem;
+
+
 
     public String createAwesomeSoftware() {
         return MessageFormat

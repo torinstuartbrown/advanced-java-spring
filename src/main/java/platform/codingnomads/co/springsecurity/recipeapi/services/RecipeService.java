@@ -32,7 +32,8 @@ public class RecipeService {
     public Recipe getRecipeById(Long id) throws NoSuchRecipeException {
         Optional<Recipe> recipeOptional = recipeRepo.findById(id);
 
-        if(recipeOptional.isEmpty()) {
+        if(recipeOptional.isEmpty())
+    {
             throw new NoSuchRecipeException("No recipe with ID " + id + " could be found");
         }
 
