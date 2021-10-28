@@ -32,7 +32,6 @@ public class JPADomainDemo implements CommandLineRunner {
         userDetailRepository.deleteAllInBatch();
 
         UserDetail userDetail = UserDetail.builder()
-                .sex(Gender.MALE)
                 .mobile("0123456789")
                 .build();
 
@@ -59,11 +58,12 @@ public class JPADomainDemo implements CommandLineRunner {
 
         CodeWarrior codeWarrior = CodeWarrior.builder()
                 .name("Java Ninja")
-                .weapons(Arrays.asList(Weapon.builder().name("JDK").build(), Weapon.builder().name("Spring").build()))
                 .build();
+        codeWarrior.addWeapon(Weapon.builder().name("JDK").build());
+        codeWarrior.addWeapon(Weapon.builder().name("Spring").build());
 
         codeWarriorRepository.save(codeWarrior);
-        codeWarriorRepository.findAll().forEach(cw -> codeWarrior.getWeapons().forEach(item -> System.out.println(item.getName())));
-
+        codeWarriorRepository.findAll().forEach(cw -> codeWarrior.getWeapons()
+                .forEach(item -> System.out.println(item.getName())));
     }
 }
