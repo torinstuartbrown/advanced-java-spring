@@ -7,27 +7,24 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
+@Table(name = "attractions")
 @AllArgsConstructor
 @RequiredArgsConstructor
-@Data
-@Table(name = "areas")
 @Builder
-public class Area implements Serializable {
-
-    private static final long serialVersionUID = 5454325498873859213L;
-
+@Data
+public class Attraction implements Serializable {
+    private static final long serialVersionUID = -2624055642258734917L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     @Column
-    private String code;
+    private String name;
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    private List<Attraction> attractions;
-
-
+    public Attraction(String name) {
+        this.name = name;
+    }
 }
+

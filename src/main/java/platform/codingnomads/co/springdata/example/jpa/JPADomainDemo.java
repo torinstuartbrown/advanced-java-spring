@@ -10,7 +10,9 @@ import platform.codingnomads.co.springdata.example.jpa.repository.CodeWarriorRep
 import platform.codingnomads.co.springdata.example.jpa.repository.UserDetailRepository;
 import platform.codingnomads.co.springdata.example.jpa.repository.UserRepository;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 @EnableJpaRepositories("platform.codingnomads.co.springdata.example.jpa.repository")
@@ -59,8 +61,11 @@ public class JPADomainDemo implements CommandLineRunner {
         CodeWarrior codeWarrior = CodeWarrior.builder()
                 .name("Java Ninja")
                 .build();
+        codeWarrior.setWeapons(new ArrayList<>(List.of(Weapon.builder().name("Sword").codeWarrior(codeWarrior).build(),
+                Weapon.builder().name("bow").codeWarrior(codeWarrior).build())));
         codeWarrior.addWeapon(Weapon.builder().name("JDK").build());
         codeWarrior.addWeapon(Weapon.builder().name("Spring").build());
+
 
         codeWarriorRepository.save(codeWarrior);
         codeWarriorRepository.findAll().forEach(cw -> codeWarrior.getWeapons()

@@ -15,7 +15,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Weapon {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "weapon_generator")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
