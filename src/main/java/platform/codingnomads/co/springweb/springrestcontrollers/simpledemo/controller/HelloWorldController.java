@@ -12,9 +12,15 @@ public class HelloWorldController {
         return "Hello Spring Developer!";
     }
 
+    @RequestMapping(path = "/me", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String me() {
+        return "Torin";
+    }
+
     @RequestMapping(path = "/hello/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String greeting(@PathVariable(name = "name") String name) {
-        return "Hello " + name + "!";
+    public String greeting(@PathVariable(name = "name") String name,
+                           @RequestParam(name="day", required=false, defaultValue = "today") String day) {
+        return "Hello " + name + " it's a great " + day + "!";
     }
 }
 

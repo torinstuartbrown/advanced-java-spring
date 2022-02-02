@@ -21,6 +21,10 @@ public class ComedyController {
     @Autowired
     ComedyService comedyService;
 
+	@Autowired
+	Person person;
+
+
 	/* This method will be invoked when the baseUrl:8080 + "/comedy" is hit.
        The baseUrl is the IP address of your server, or "localhost".
        8080 is the port at which Apache Tomcat will be running and serving this app.
@@ -29,6 +33,8 @@ public class ComedyController {
 	public String comedy (Model model) {
 		// Get a random joke from the comedy service "bean"
 		String joke = comedyService.getRandomJoke();
+
+		System.out.println(person.name);
 
 		// Attach that joke to the data model
 		// (insert the joke into the HTML that will be returned to user)
