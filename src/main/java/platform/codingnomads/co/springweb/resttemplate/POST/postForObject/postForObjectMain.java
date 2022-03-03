@@ -28,19 +28,32 @@ public class postForObjectMain {
     @Bean
     public CommandLineRunner run() throws Exception {
         return args -> {
-            Task newTask = Task.builder()
-                    .name("learn how to use postForObject()")
-                    .description("get comfortable using the RestTemplate postForObject() method")
-                    .userId(5)
-                    .completed(false)
+//            Task newTask = Task.builder()
+//                    .name("learn how to use postForObject()")
+//                    .description("get comfortable using the RestTemplate postForObject() method")
+//                    .userId(5)
+//                    .completed(false)
+//                    .build();
+//
+//            ResponseObject taskReturnedByServerAfterPost = restTemplate
+//                    .postForObject("http://demo.codingnomads.co:8080/tasks_api/tasks", newTask, ResponseObject.class);
+//
+//            if (taskReturnedByServerAfterPost != null) {
+//                System.out.println(taskReturnedByServerAfterPost.toString());
+//            }
+
+            TorinUser newUser = TorinUser.builder()
+                    .email("torinsuser2@gmail.com")
+                    .first_name("Torins")
+                    .last_name("User")
                     .build();
+            TorinResponseObject torinUserRetrunedByServerAfterPost = restTemplate
+                    .postForObject("http://demo.codingnomads.co:8080/tasks_api/users", newUser, TorinResponseObject.class);
 
-            ResponseObject taskReturnedByServerAfterPost = restTemplate
-                    .postForObject("http://demo.codingnomads.co:8080/tasks_api/tasks", newTask, ResponseObject.class);
-
-            if (taskReturnedByServerAfterPost != null) {
-                System.out.println(taskReturnedByServerAfterPost.toString());
+            if (torinUserRetrunedByServerAfterPost != null) {
+                System.out.println(torinUserRetrunedByServerAfterPost.toString());
             }
+
         };
     }
 }
