@@ -17,6 +17,10 @@ public class HomeController {
         map.put("name", "Developer");
         map.put("language", "Java");
         map.put("framework", "Spring");
+        model.addAttribute("date", "3/17/2021");
+        model.addAttribute("timezone", "Mountain");
+        model.addAttribute("location", "Denver");
+        model.addAttribute("department", "IT");
         model.mergeAttributes(map);
         return "model-page";
     }

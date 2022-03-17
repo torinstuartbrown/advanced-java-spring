@@ -17,7 +17,7 @@ public class postForObjectMain {
     RestTemplate restTemplate;
 
     public static void main(String[] args) {
-        SpringApplication.run(postForObjectMain.class, args);
+//        SpringApplication.run(postForObjectMain.class, args);
     }
 
     @Bean
