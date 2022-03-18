@@ -12,4 +12,10 @@ public class GreetingController {
         model.addAttribute("name", "Spring Developer!");
         return "greeting"; 
     }
+
+    @GetMapping({ "/", "/practice" })
+    public String practice(Model model) {
+        model.addAttribute("zipcode", "80113");
+        return "zipcode";
+    }
 }
