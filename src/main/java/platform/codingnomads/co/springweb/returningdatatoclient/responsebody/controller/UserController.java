@@ -5,9 +5,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import platform.codingnomads.co.springweb.returningdatatoclient.responsebody.model.User;
 
-@Controller
+@RestController
 public class UserController {
 
     public User user = User.builder()

@@ -9,6 +9,17 @@ strong {
     background-color: darkgoldenrod;
 }
 
+newStyle1 {
+    font-weight: 500;
+    font-size: 2.5em;
+    background-color: blue;
+}
+
+newStyle2 {
+    font-family: comic-sans;
+    color: orange;
+}
+
 p {
     font-family: sans-serif;
 }

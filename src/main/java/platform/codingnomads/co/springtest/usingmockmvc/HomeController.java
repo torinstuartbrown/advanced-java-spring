@@ -21,4 +21,11 @@ public class HomeController {
     public String greet() {
         return "Hello Back";
     }
+
+    @GetMapping("/test1")
+    public String index2(Model model){
+        model.addAttribute("number", "7");
+        return "num";
+    }
+
 }

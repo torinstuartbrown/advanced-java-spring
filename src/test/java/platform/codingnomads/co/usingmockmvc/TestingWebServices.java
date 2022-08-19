@@ -50,4 +50,13 @@ public class TestingWebServices {
                 //the view name expected is greeting
                 .andExpect(view().name("greeting"));
     }
+
+    @Test
+    public void endPointShouldReturnNumView() throws Exception {
+        mockMvc
+                .perform(get("/test1"))
+                .andDo(print())
+                .andExpect(view().name("num"))
+                .andExpect(content().string(containsString("Hello, 7")));
+    }
 }
